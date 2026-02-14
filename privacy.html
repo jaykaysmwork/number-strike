@@ -14,63 +14,88 @@
 </head>
 <body>
   <h1>Privacy Policy for Number Strike</h1>
-  <p class="meta">Effective Date: February 8, 2026</p>
-  <p class="meta">Last Updated: February 8, 2026</p>
+  <p class="meta">Effective Date: February 14, 2026</p>
+  <p class="meta">Last Updated: February 14, 2026</p>
 
   <h2>1. Introduction</h2>
-  <p>Welcome to Number Strike ("we," "our," or "us"). We are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application (the "App"). By using the App, you agree to the collection and use of information in accordance with this policy.</p>
+  <p>Welcome to Number Strike ("we", "our", or "us"). This Privacy Policy explains how we collect, use, share, and retain information when you use our mobile app (the "App").</p>
 
   <h2>2. Information We Collect</h2>
-  <p>We collect information to provide a real-time PvP gaming experience, manage game economy, and maintain competitive leaderboards.</p>
-  <p><strong>A. Information You Provide to Us</strong></p>
-  <p><strong>Authentication Data:</strong> We use Firebase Authentication for Guest (Anonymous), Google, and Apple Sign-in. We collect your Firebase UID and, depending on the provider, your name and email address.</p>
-  <p><strong>Profile Information:</strong> You may choose to provide a nickname and a profile photo.</p>
-  <p><strong>Camera and Photos:</strong> With your permission, we access your device's camera or photo library to allow you to set a profile picture.</p>
+  <p>We collect information necessary to operate gameplay, social features, and rewards.</p>
+
+  <p><strong>A. Information You Provide</strong></p>
+  <p><strong>Authentication Data:</strong></p>
+  <ul>
+    <li>We use Firebase Authentication.</li>
+    <li>Supported sign-in methods include Email/Password (with email verification), Google Sign-In, and Sign in with Apple.</li>
+    <li>Guest/Anonymous login is not supported.</li>
+    <li>We process identifiers such as Firebase UID and, depending on provider, your email and basic account profile.</li>
+  </ul>
+
+  <p><strong>Profile Data:</strong></p>
+  <ul>
+    <li>Nickname (and normalized nickname key for uniqueness checks/search).</li>
+    <li>Profile photo (URL and, in fallback cases, photo bytes in Base64 form).</li>
+  </ul>
+
+  <p><strong>Camera/Photo Access:</strong> If you choose to change profile photo, the app may request access to your camera or photo library.</p>
+
+  <p><strong>Social Data:</strong> Friends, friend requests, match invitations, invitation status, and basic social activity state (such as online/offline presence timestamp/state).</p>
+
   <p><strong>B. Information Collected Automatically</strong></p>
-  <p><strong>Gameplay Data:</strong> We record match results, turn history (guesses, strikes, balls), rating (Elo), tier index, and win/loss statistics.</p>
-  <p><strong>Technical Data:</strong> Our service providers (Google Firebase) may collect device-specific information (e.g., OS version, hardware model), IP addresses, and log information for security and service stability.</p>
-  <p><strong>Advertising Identifiers:</strong> To support our "Rewarded Video" and "Banner Ad" features, we use the Google Mobile Ads (AdMob) SDK, which may collect Advertising IDs (e.g., IDFA on iOS, AAID on Android) and device interaction data.</p>
+  <p><strong>Gameplay and Competitive Data:</strong> Match records, match history, guesses/turn progression, results, mode stats (Single/BO3/BO5), rating/tier metrics, wins/losses, streaks, and credits balance/changes.</p>
 
-  <h2>3. Matchmaking and AI Opponents (Disclosure)</h2>
-  <p>To ensure immediate gameplay availability, Number Strike utilizes a hybrid matchmaking system:</p>
-  <p><strong>Human-to-Human:</strong> The system prioritizes matching you with other human players.</p>
-  <p><strong>AI Fallback:</strong> If a human opponent is not found within 5 seconds, you will be matched with an AI-controlled "Bot."</p>
-  <p><strong>Treatment of Data:</strong> AI opponents are treated as standard users within our database. Match results against AI affect your rating and are displayed on leaderboards identically to human PvP matches. Credits are consumed for matches against AI in the same manner as human matches.</p>
+  <p><strong>Push Notification Data:</strong> FCM device token and token refresh timestamps used to deliver notifications (for example invitations and credit-related notifications).</p>
 
-  <h2>4. How We Use Your Information</h2>
+  <p><strong>Technical/Diagnostic Data:</strong> Device/app/service metadata handled by our infrastructure providers (for service stability, fraud prevention, and debugging).</p>
+
+  <p><strong>Advertising Data:</strong> For rewarded and banner ads, Google Mobile Ads (AdMob) SDK may process advertising identifiers and ad interaction signals under its own policies.</p>
+
+  <p><strong>Referral and Deep Link Data:</strong> Referral code in invite links, temporary pending referral code stored locally until account onboarding completes, and referral attribution/reward status.</p>
+
+  <p><strong>Local Device Storage:</strong> We use local storage (for example SharedPreferences) for settings and app state such as sound preferences, onboarding/hint state, and pending referral code.</p>
+
+  <h2>3. Matchmaking and AI Opponents</h2>
+  <p>To reduce waiting time, matchmaking may fall back to AI-controlled opponents when a human match is not found quickly. Matches against AI are handled in game systems similarly to other matches (including rating/stat and credits flows per current game rules).</p>
+
+  <h2>4. How We Use Information</h2>
+  <p>We use information to:</p>
   <ul>
-    <li>To facilitate real-time, turn-based PvP and synchronization.</li>
-    <li>To manage the in-game economy (Credits) and grant rewards via ads.</li>
-    <li>To maintain competitive leaderboards (Single, BO3, BO5 modes).</li>
-    <li>To prevent fraudulent activity and ensure nickname uniqueness.</li>
-    <li>To provide support and respond to user inquiries.</li>
+    <li>run real-time gameplay, matchmaking, social interactions, and invitations;</li>
+    <li>manage credits economy, ad rewards, and referral rewards;</li>
+    <li>maintain leaderboards and competitive integrity;</li>
+    <li>provide notifications you enabled;</li>
+    <li>secure accounts, prevent abuse/fraud, and enforce nickname uniqueness;</li>
+    <li>operate, troubleshoot, and improve app reliability and performance.</li>
   </ul>
 
-  <h2>5. Data Storage and Retention</h2>
-  <p><strong>Storage:</strong> Data is stored using Google Firebase (Firestore, Storage, Auth).</p>
-  <p><strong>Fallback Storage:</strong> If cloud storage is unavailable, profile photo bytes may be stored in Base64 format within our database to ensure profile persistence.</p>
-  <p><strong>Retention:</strong> Gameplay logs and profile data are retained to preserve global ranking integrity. We do not automatically delete match history.</p>
-
-  <h2>6. Sharing of Information</h2>
-  <p>We do not sell your personal data. We share information only with:</p>
+  <h2>5. Sharing of Information</h2>
+  <p>We do not sell personal information.</p>
+  <p>We share data only as needed with service providers and legal requirements, including:</p>
   <ul>
-    <li>Google Firebase: For infrastructure, database, and authentication services.</li>
-    <li>Google AdMob: For serving banner and rewarded advertisements.</li>
-    <li>Legal Necessity: If required by law or to protect the safety of our users or the public.</li>
+    <li>Google Firebase (Authentication, Firestore, Cloud Functions, Storage, Cloud Messaging);</li>
+    <li>Google AdMob (ad serving and related measurement);</li>
+    <li>Apple/Google authentication providers as required by your selected sign-in method.</li>
   </ul>
+  <p>We may also disclose information when required by law or to protect safety, rights, and integrity.</p>
 
-  <h2>7. Children's Privacy (COPPA)</h2>
-  <p>Number Strike is not intended for children under the age of 13. We do not knowingly collect personal information from children under 13. If we discover such data, we will take immediate steps to delete it.</p>
+  <h2>6. Data Retention</h2>
+  <p>We retain data as needed to operate the service and preserve competitive integrity (including leaderboard/match-related records), unless deletion is required by law or valid user request.</p>
+  <p>Profile photos may be stored as URLs, and in fallback scenarios as Base64 bytes for continuity.</p>
 
-  <h2>8. User Rights and Data Deletion</h2>
-  <p>Under certain laws (such as CCPA in California), you have the right to access or delete your data.</p>
-  <p><strong>Current Process:</strong> Users may request account and data deletion by contacting us at the email address below.</p>
-  <p><strong>How to request deletion:</strong> Send an email to <strong>jaykaysm@gmail.com</strong> with the subject "Account Deletion Request" and include the email address or account identifier associated with your Number Strike account. We will process your request and delete your account and associated data in accordance with our retention practices.</p>
-  <p><strong>Data deleted:</strong> Upon request, we will delete your profile (nickname, photo), gameplay history, and account credentials. Some anonymized or aggregated data may be retained for legal or operational purposes.</p>
-  <p><strong>Future Updates:</strong> We are working on an in-app "Delete Account" feature to automate this process.</p>
+  <h2>7. Account Deletion and User Rights</h2>
+  <p>You can request deletion using the in-app Delete Account flow in Settings. When processed, we remove account/profile data we control for your user account (including auth/profile linkage and nickname reservation).</p>
+  <p>Some records may remain where required for system integrity, legal obligations, fraud prevention, backups, or data that has already been incorporated into other users' records/aggregated history.</p>
+  <p>Depending on your jurisdiction, you may have rights to access, correct, or delete personal data. Contact us for requests.</p>
 
-  <h2>9. Contact Us</h2>
-  <p>If you have any questions or concerns regarding this Privacy Policy, please contact us at:</p>
+  <h2>8. Children's Privacy</h2>
+  <p>Number Strike is not intended for children under 13, and we do not knowingly collect personal information from children under 13. If we learn we have collected such data, we will take appropriate deletion steps.</p>
+
+  <h2>9. International Processing</h2>
+  <p>Our service providers may process/store data in regions outside your local jurisdiction.</p>
+
+  <h2>10. Contact</h2>
+  <p>If you have questions about this Privacy Policy or privacy requests, contact:</p>
   <p><strong>Developer Name:</strong> Jookwang Jung</p>
   <p><strong>Email:</strong> jaykaysm@gmail.com</p>
   <p><strong>Location:</strong> Los Angeles, California, USA</p>
