@@ -8,95 +8,205 @@
     body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; max-width: 720px; margin: 0 auto; padding: 24px; line-height: 1.6; color: #333; }
     h1 { font-size: 1.5rem; margin-top: 2rem; margin-bottom: 0.5rem; }
     h2 { font-size: 1.15rem; margin-top: 1.5rem; margin-bottom: 0.4rem; }
+    h3 { font-size: 1.05rem; margin-top: 1.2rem; margin-bottom: 0.3rem; }
     p { margin: 0.6rem 0; }
+    ul { margin: 0.4rem 0; padding-left: 1.5rem; }
+    li { margin: 0.3rem 0; }
     .meta { color: #666; font-size: 0.95rem; }
   </style>
 </head>
 <body>
   <h1>Privacy Policy for Number Strike</h1>
-  <p class="meta">Effective Date: February 14, 2026</p>
-  <p class="meta">Last Updated: February 14, 2026</p>
+  <p class="meta">Effective Date: March 11, 2026</p>
+  <p class="meta">Last Updated: March 17, 2026</p>
 
   <h2>1. Introduction</h2>
-  <p>Welcome to Number Strike ("we", "our", or "us"). This Privacy Policy explains how we collect, use, share, and retain information when you use our mobile app (the "App").</p>
+  <p>Welcome to Number Strike ("we," "our," or "us"). Number Strike is a real-time, turn-based player-versus-player (PvP) number guessing game. This Privacy Policy explains what information we collect, how we use it, who we share it with, how long we keep it, and what choices you have, when you use our mobile application (the "App").</p>
+  <p>By using the App you agree to this Privacy Policy. If you do not agree, please do not use the App.</p>
 
   <h2>2. Information We Collect</h2>
-  <p>We collect information necessary to operate gameplay, social features, and rewards.</p>
+  <p>We collect only the information necessary to provide gameplay, social features, matchmaking, and our in-app economy.</p>
 
-  <p><strong>A. Information You Provide</strong></p>
-  <p><strong>Authentication Data:</strong></p>
+  <h3>A. Information You Provide</h3>
+
+  <p><strong>Authentication Data</strong></p>
+  <p>We use Firebase Authentication. You may sign in using any of the following methods:</p>
   <ul>
-    <li>We use Firebase Authentication.</li>
-    <li>Supported sign-in methods include Email/Password (with email verification), Google Sign-In, and Sign in with Apple.</li>
-    <li>Guest/Anonymous login is not supported.</li>
-    <li>We process identifiers such as Firebase UID and, depending on provider, your email and basic account profile.</li>
+    <li><strong>Guest (anonymous):</strong> A system-generated Firebase user identifier (UID) is assigned. No personal information is required.</li>
+    <li><strong>Google Sign-In:</strong> We receive an OAuth token from Google. Your Google account email, display name, and profile photo URL may be stored in Firebase Authentication. We do not copy this data into our own database.</li>
+    <li><strong>Sign in with Apple:</strong> We receive an identity token and authorization code from Apple. Your email and full name (if you choose to share them) may be stored in Firebase Authentication. We do not copy this data into our own database.</li>
+    <li><strong>Email and Password:</strong> You provide an email address and password. Firebase Authentication stores your email and a hashed version of your password. We send a verification email to confirm your address.</li>
   </ul>
 
-  <p><strong>Profile Data:</strong></p>
+  <p><strong>Profile Data</strong></p>
   <ul>
-    <li>Nickname (and normalized nickname key for uniqueness checks/search).</li>
-    <li>Profile photo (URL and, in fallback cases, photo bytes in Base64 form).</li>
+    <li>Display nickname (3–16 characters). A normalized, lowercase version is also stored to enforce uniqueness.</li>
+    <li>Profile photo, if you choose to upload one. The photo is stored in Firebase Storage. As a reliability fallback, a Base64-encoded copy may also be stored in our database.</li>
   </ul>
 
-  <p><strong>Camera/Photo Access:</strong> If you choose to change profile photo, the app may request access to your camera or photo library.</p>
+  <p><strong>Camera and Photo Library Access</strong></p>
+  <p>If you choose to set or change your profile photo, the App may request permission to access your device camera or photo library. These permissions are used solely for profile photo selection and are never accessed for any other purpose.</p>
 
-  <p><strong>Social Data:</strong> Friends, friend requests, match invitations, invitation status, and basic social activity state (such as online/offline presence timestamp/state).</p>
+  <p><strong>Social and Communication Data</strong></p>
+  <ul>
+    <li>Friend list and friend request records (sender, receiver, status, timestamps).</li>
+    <li>Match invitations between friends (sender, receiver, match format, status, timestamps).</li>
+    <li>Online/offline presence state and last-seen timestamp, used to show availability to friends.</li>
+  </ul>
 
-  <p><strong>B. Information Collected Automatically</strong></p>
-  <p><strong>Gameplay and Competitive Data:</strong> Match records, match history, guesses/turn progression, results, mode stats (Single/BO3/BO5), rating/tier metrics, wins/losses, streaks, and credits balance/changes.</p>
+  <p><strong>Feedback</strong></p>
+  <p>You may submit feedback through Settings. When you do, we collect: your user identifier, nickname, the message text, your app version and build number, your device platform (iOS or Android), and a timestamp.</p>
 
-  <p><strong>Push Notification Data:</strong> FCM device token and token refresh timestamps used to deliver notifications (for example invitations and credit-related notifications).</p>
+  <h3>B. Information Generated or Collected Automatically</h3>
 
-  <p><strong>Technical/Diagnostic Data:</strong> Device/app/service metadata handled by our infrastructure providers (for service stability, fraud prevention, and debugging).</p>
+  <p><strong>Gameplay and Competitive Data</strong></p>
+  <p>When you play matches, we record:</p>
+  <ul>
+    <li>Match metadata: format (Single, Best-of-3, Best-of-5), participants, start/end timestamps, and result (winner, forfeit, timeout).</li>
+    <li>Turn-by-turn history: each guess, the strike/ball feedback, and which player made the guess.</li>
+    <li>Competitive statistics: Elo rating, tier/rank, wins, losses, games played, win streaks, and per-mode breakdowns, updated by our server after each match.</li>
+    <li>Match history summaries: opponent nickname, format, result, and end time, stored per-player by our server.</li>
+    <li>Secret number hashes: To verify fair play, a SHA-256 cryptographic hash of each player's secret number is stored on our server. The actual secret number is held only in device memory and is never transmitted or stored in plaintext.</li>
+  </ul>
 
-  <p><strong>Advertising Data:</strong> For rewarded and banner ads, Google Mobile Ads (AdMob) SDK may process advertising identifiers and ad interaction signals under its own policies.</p>
+  <p><strong>Credits (In-App Economy)</strong></p>
+  <ul>
+    <li>Your credit balance, credit transaction history (deductions on match entry, refunds to winners, rewarded-ad grants, hourly free grants), and timestamps of recent credit events.</li>
+  </ul>
 
-  <p><strong>Referral and Deep Link Data:</strong> Referral code in invite links, temporary pending referral code stored locally until account onboarding completes, and referral attribution/reward status.</p>
+  <p><strong>Push Notifications</strong></p>
+  <ul>
+    <li>If you enable push notifications, we store your Firebase Cloud Messaging (FCM) device token and the timestamp of the last token refresh. Tokens are used to deliver match invitations, friend-request alerts, and periodic credit-related reminders. Stale tokens are automatically cleared by our server.</li>
+  </ul>
 
-  <p><strong>Local Device Storage:</strong> We use local storage (for example SharedPreferences) for settings and app state such as sound preferences, onboarding/hint state, and pending referral code.</p>
+  <p><strong>Login Activity</strong></p>
+  <ul>
+    <li>Each time you sign in, a login timestamp is recorded in your account history.</li>
+  </ul>
+
+  <p><strong>Device Locale and Country</strong></p>
+  <ul>
+    <li>We collect your device's locale setting (e.g., "en_US") and derive a country code (e.g., "US") from it. This information is updated each time you open the App and is used to understand our user base by region and to support future localization improvements. This data reflects your device's language and region settings, not your precise geographic location.</li>
+  </ul>
+
+  <p><strong>Advertising Data</strong></p>
+  <p>We display ads through Unity Ads (Unity Technologies). The Unity Ads SDK may collect and process:</p>
+  <ul>
+    <li>Advertising identifiers (IDFA on iOS, Google Advertising ID on Android).</li>
+    <li>IP address, device model, operating system version, and screen resolution.</li>
+    <li>Ad interaction data: impressions, clicks, video completion, and skip events.</li>
+  </ul>
+  <p>This data is collected and processed by Unity Technologies under its own privacy policy. On iOS, we participate in Apple's SKAdNetwork framework for privacy-preserving ad attribution. The App includes SKAdNetwork identifiers for this purpose.</p>
+
+  <p><strong>Referral and Deep Link Data</strong></p>
+  <ul>
+    <li>The App supports referral links (numberstrike.app/invite?ref=CODE). When you open a referral link, the referral code is temporarily stored on your device until account setup completes. Once applied, the referral relationship (referrer and referee identifiers, status, and reward timestamp) is stored on our server.</li>
+  </ul>
+
+  <p><strong>Local Device Storage</strong></p>
+  <p>We store non-personal preferences on your device using local storage (SharedPreferences), including:</p>
+  <ul>
+    <li>Audio settings (volume levels, mute states).</li>
+    <li>Language/locale preference.</li>
+    <li>Tutorial and onboarding dismissal states.</li>
+    <li>Interstitial ad frequency counter.</li>
+    <li>In-app review prompt state.</li>
+  </ul>
+  <p>These values contain no personally identifiable information and remain entirely on your device.</p>
+
+  <h3>C. Information We Do NOT Collect</h3>
+  <p>We do not integrate any dedicated analytics or crash-reporting SDK (such as Google Analytics, Firebase Analytics, Crashlytics, or Sentry). We do not track your browsing activity, location, contacts, or any sensor data.</p>
 
   <h2>3. Matchmaking and AI Opponents</h2>
-  <p>To reduce waiting time, matchmaking may fall back to AI-controlled opponents when a human match is not found quickly. Matches against AI are handled in game systems similarly to other matches (including rating/stat and credits flows per current game rules).</p>
+  <p>To ensure a smooth experience and reduce wait times, the matchmaking system may pair you with an AI-controlled opponent when a human match is not found within a short period. AI opponents are treated the same as human opponents within game systems, including rating adjustments and credit flows. AI opponents have their own persistent profiles and match records.</p>
 
   <h2>4. How We Use Information</h2>
-  <p>We use information to:</p>
+  <p>We use the information we collect to:</p>
   <ul>
-    <li>run real-time gameplay, matchmaking, social interactions, and invitations;</li>
-    <li>manage credits economy, ad rewards, and referral rewards;</li>
-    <li>maintain leaderboards and competitive integrity;</li>
-    <li>provide notifications you enabled;</li>
-    <li>secure accounts, prevent abuse/fraud, and enforce nickname uniqueness;</li>
-    <li>operate, troubleshoot, and improve app reliability and performance.</li>
+    <li>Authenticate your identity and manage your account.</li>
+    <li>Operate real-time gameplay, matchmaking, turn progression, and match resolution.</li>
+    <li>Maintain your profile, friends list, and social interactions (invitations, presence).</li>
+    <li>Run the credits economy: deducting credits on match entry, refunding winners, granting ad rewards, and distributing hourly free credits.</li>
+    <li>Process referral attribution and rewards.</li>
+    <li>Calculate and update competitive ratings, tiers, and leaderboard rankings.</li>
+    <li>Deliver push notifications you have enabled (invitations, friend requests, credit alerts).</li>
+    <li>Display advertisements (banner, interstitial, and rewarded video) through Unity Ads.</li>
+    <li>Verify fair play through cryptographic hash comparison of secret numbers.</li>
+    <li>Enforce nickname uniqueness and prevent abuse.</li>
+    <li>Respond to your feedback submissions.</li>
+    <li>Understand our user base by region and improve localization (using device locale and country data).</li>
+    <li>Comply with legal obligations.</li>
   </ul>
 
   <h2>5. Sharing of Information</h2>
-  <p>We do not sell personal information.</p>
-  <p>We share data only as needed with service providers and legal requirements, including:</p>
+  <p>We do not sell your personal information.</p>
+  <p>We share data with the following service providers solely to operate the App:</p>
   <ul>
-    <li>Google Firebase (Authentication, Firestore, Cloud Functions, Storage, Cloud Messaging);</li>
-    <li>Google AdMob (ad serving and related measurement);</li>
-    <li>Apple/Google authentication providers as required by your selected sign-in method.</li>
+    <li><strong>Google LLC / Firebase:</strong> Authentication, Cloud Firestore (database), Firebase Storage (file storage), Cloud Functions (server-side logic), and Firebase Cloud Messaging (push notifications). Firebase processes your data under Google's privacy terms.</li>
+    <li><strong>Unity Technologies:</strong> Unity Ads SDK for ad serving, measurement, and optimization. Unity processes advertising identifiers, device information, and ad interaction data under its own privacy policy.</li>
+    <li><strong>Apple Inc.:</strong> Sign in with Apple authentication (when you choose Apple sign-in). SKAdNetwork for privacy-preserving ad attribution on iOS.</li>
+    <li><strong>Google LLC:</strong> Google Sign-In authentication (when you choose Google sign-in).</li>
   </ul>
-  <p>We may also disclose information when required by law or to protect safety, rights, and integrity.</p>
+  <p>We may also disclose information if required by law, legal process, or governmental request, or when necessary to protect the safety, rights, or property of our users or the public.</p>
 
-  <h2>6. Data Retention</h2>
-  <p>We retain data as needed to operate the service and preserve competitive integrity (including leaderboard/match-related records), unless deletion is required by law or valid user request.</p>
-  <p>Profile photos may be stored as URLs, and in fallback scenarios as Base64 bytes for continuity.</p>
+  <h2>6. Data Security</h2>
+  <p>We implement multiple layers of security to protect your data:</p>
+  <ul>
+    <li><strong>Server-side access control:</strong> Firestore Security Rules restrict read and write access to authorized users and validated operations. Sensitive fields (such as ratings, credits, and match outcomes) can only be modified by our server-side Cloud Functions, not by client devices.</li>
+    <li><strong>Cryptographic integrity:</strong> Secret numbers used in gameplay are never stored or transmitted in plaintext. Only their SHA-256 hashes are sent to the server, where they are verified upon match completion.</li>
+    <li><strong>Authentication:</strong> All data access requires a valid Firebase Authentication session. Each user can only access their own profile and authorized game data.</li>
+    <li><strong>Transport encryption:</strong> All network communication between the App and our servers uses HTTPS/TLS encryption.</li>
+  </ul>
+  <p>While we strive to protect your information, no method of electronic storage or transmission is completely secure, and we cannot guarantee absolute security.</p>
 
-  <h2>7. Account Deletion and User Rights</h2>
-  <p>You can request deletion using the in-app Delete Account flow in Settings. When processed, we remove account/profile data we control for your user account (including auth/profile linkage and nickname reservation).</p>
-  <p>Some records may remain where required for system integrity, legal obligations, fraud prevention, backups, or data that has already been incorporated into other users' records/aggregated history.</p>
-  <p>Depending on your jurisdiction, you may have rights to access, correct, or delete personal data. Contact us for requests.</p>
+  <h2>7. Data Retention</h2>
+  <p>We retain different categories of data for different periods:</p>
+  <ul>
+    <li><strong>Account and profile data:</strong> Retained until you delete your account through the in-app Delete Account feature.</li>
+    <li><strong>Game records and turn history:</strong> Retained indefinitely to preserve leaderboard integrity and competitive history.</li>
+    <li><strong>Match history summaries:</strong> Retained indefinitely as part of your game record.</li>
+    <li><strong>Login history:</strong> Retained until account deletion.</li>
+    <li><strong>Matchmaking queue data:</strong> Automatically cleaned up when a match is found, cancelled, or detected as stale (within 30 minutes).</li>
+    <li><strong>Invitations:</strong> Status is updated (accepted, declined, cancelled) but records are retained. Invitations are cancelled upon account deletion.</li>
+    <li><strong>Feedback submissions:</strong> Retained indefinitely for product improvement purposes.</li>
+    <li><strong>FCM tokens:</strong> Cleared on sign-out. Stale tokens are automatically invalidated by our server.</li>
+    <li><strong>Local device storage:</strong> Managed by your device operating system and removed when the App is uninstalled.</li>
+  </ul>
 
-  <h2>8. Children's Privacy</h2>
-  <p>Number Strike is not intended for children under 13, and we do not knowingly collect personal information from children under 13. If we learn we have collected such data, we will take appropriate deletion steps.</p>
+  <h2>8. Account Deletion and Your Rights</h2>
+  <p>You can delete your account at any time using the Delete Account feature in the App's Settings screen. When you delete your account, we remove:</p>
+  <ul>
+    <li>Your user profile and all associated data (nickname, photo, statistics, ratings, credits, referral code, presence state, FCM token).</li>
+    <li>Your nickname reservation (freeing it for future use).</li>
+    <li>Your friends list and all pending/received friend requests.</li>
+    <li>Your login history.</li>
+    <li>Your matchmaking queue entry and matchmaking slot data.</li>
+    <li>Your referral record.</li>
+    <li>Your profile photo from Firebase Storage.</li>
+    <li>Outgoing invitations (marked as cancelled); incoming invitations (marked as cancelled).</li>
+    <li>Your Firebase Authentication account.</li>
+  </ul>
+  <p>After deletion, the following may remain:</p>
+  <ul>
+    <li>Completed game records and turn logs, which are part of the shared competitive history and leaderboard system.</li>
+    <li>Your match history entries in other players' records (opponent nickname and match result).</li>
+    <li>Feedback submissions you have made.</li>
+    <li>Data that has already been processed into aggregated or anonymized form.</li>
+  </ul>
+  <p>Depending on your jurisdiction (for example, under the GDPR, CCPA, or other applicable privacy laws), you may have additional rights regarding your personal data, including the right to access, correct, port, or request deletion of your data. To exercise these rights, please contact us using the information below.</p>
 
-  <h2>9. International Processing</h2>
-  <p>Our service providers may process/store data in regions outside your local jurisdiction.</p>
+  <h2>9. Children's Privacy</h2>
+  <p>Number Strike is not directed at children under the age of 13 (or the applicable age of digital consent in your jurisdiction). We do not knowingly collect personal information from children under 13. If you believe we have inadvertently collected such information, please contact us and we will promptly delete it.</p>
 
-  <h2>10. Contact</h2>
-  <p>If you have questions about this Privacy Policy or privacy requests, contact:</p>
-  <p><strong>Developer Name:</strong> Jookwang Jung</p>
+  <h2>10. International Data Processing</h2>
+  <p>Our service infrastructure is provided by Google (Firebase) and Unity Technologies, which may process and store data in data centers located outside your country of residence, including in the United States. By using the App, you acknowledge that your data may be transferred to and processed in jurisdictions that may have different data protection laws than your own.</p>
+
+  <h2>11. Changes to This Privacy Policy</h2>
+  <p>We may update this Privacy Policy from time to time. When we make material changes, we will update the "Last Updated" date at the top and, where practical, notify you through the App. Your continued use of the App after changes are posted constitutes your acceptance of the updated policy.</p>
+
+  <h2>12. Contact</h2>
+  <p>If you have questions about this Privacy Policy, wish to exercise your privacy rights, or have any privacy-related concerns, please contact:</p>
+  <p><strong>Developer:</strong> Jookwang Jung</p>
   <p><strong>Email:</strong> jaykaysm@gmail.com</p>
   <p><strong>Location:</strong> Los Angeles, California, USA</p>
 </body>
